@@ -1,0 +1,13 @@
+#required libraies
+library(Rcpp)
+library(RcppArmadillo)
+
+source(".../ShadowN/R/shadown.R")
+source(".../ShadowN/R/kernelknn.R")
+source(".../ShadowN/R/normalization.R")
+source(".../ShadowN/R/RcppExports.R")
+source(".../ShadowN/R/utils.R")
+sourceCpp(".../ShadowN/src/distance_metrics.cpp")
+
+#shadown
+res = shadown(target~., Data,knn = 5, p = 0.01,nshadow = (ncol(Data)-1))
